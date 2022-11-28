@@ -1,10 +1,24 @@
 <canvas
   baseChart
-  [type]="'pie'"
+  [options]="pieChartOptions"
   [datasets]="pieChartDatasets"
   [labels]="pieChartLabels"
-  [options]="pieChartOptions"
   [plugins]="pieChartPlugins"
-  [legend]="pieChartLegend"
+  (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)"
+  [type]="'pie'"
 >
 </canvas>
+<!-- 
+<canvas
+  baseChart
+  [options]="pieChartOptions"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [colors]="pieChartColors"
+  [chartType]="pieChartType"
+  (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)"
+>
+</canvas>
+-->
