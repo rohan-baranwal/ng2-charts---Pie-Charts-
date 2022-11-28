@@ -33,8 +33,17 @@ export class AppComponent {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: true,
-    legend: {
-      display: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: false
+      },datalabels: {
+        font: {
+          size: 24,
+        }
+      }
     },
   };
   public pieChartLabels = [
@@ -48,7 +57,6 @@ export class AppComponent {
     },
   ];
   public pieChartLegend = true;
-  public pieChartPlugins = [];
 
   constructor() {}
 
