@@ -65,9 +65,10 @@ export class AppComponent {
     ['In', 'Store', 'Sales'],
     'Mail Sales',
   ];
-  public pieChartDatasets = [
+  public pieChartDatasets: { data: number[]; backgroundColor: string[]; }[] = [
     {
       data: [300, 500, 100],
+      backgroundColor: ['#ed7d31', '#4375a1', '#ffbf00', '#afafaf', '#70AD46', '#5B9CD6']
     },
   ];
   public pieChartLegend = true;
