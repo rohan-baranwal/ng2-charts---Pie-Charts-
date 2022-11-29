@@ -30,7 +30,8 @@ export class AppComponent {
       ],
     },
   ];
-  public pieChartOptions: ChartOptions<'pie'> = {
+  // public pieChartOptions: ChartOptions<'pie'> = {
+  public pieChartOptions: any = {
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
@@ -41,9 +42,22 @@ export class AppComponent {
         enabled: false
       },datalabels: {
         font: {
+          isDoughnut: false,
           size: 24,
         }
       }
+    },
+    pieceLabel: { // !Remove
+      responsive: true,
+      maintainAspectRatio: true,
+      render: function (args: any) {
+        const value = args.value;
+        return value;
+      },
+      fontColor: 'rgb(255,255,255)',
+      fontStyle: 'bold',
+      fontFamily: 'Helvetica',
+      overlap: true
     },
   };
   public pieChartLabels = [
@@ -57,6 +71,48 @@ export class AppComponent {
     },
   ];
   public pieChartLegend = true;
+
+  public pieChartOptions2 = {
+    responsive: true,
+    maintainAspectRatio: true,
+    legend: {
+      display: false
+    },
+    tooltips: {
+      enabled: false
+    },
+    // set dataLabel if you want to show count of data as label inside chart, isDoughnut field is for Doughnut chart.
+    dataLabel: {
+      isDoughnut: false, // ! Remove
+      fontSize: '24'
+    },
+    pieceLabel: { // !Remove
+      responsive: true,
+      maintainAspectRatio: true,
+      render: function (args: any) {
+        const value = args.value;
+        return value;
+      },
+      fontColor: 'rgb(255,255,255)',
+      fontStyle: 'bold',
+      fontFamily: 'Helvetica',
+      overlap: true
+    },
+    // onHover: function (chart, array) {
+    //   if (chart.toElement && chart.toElement.attributes.style) {
+    //     if (array[0]) {
+    //       chart.toElement.attributes.style.nodeValue =
+    //           chart.toElement.attributes.style.nodeValue.replace('cursor: default;', 'cursor: pointer;');
+    //       if (chart.toElement.attributes.style.nodeValue.indexOf('cursor: pointer;') === -1) {
+    //         chart.toElement.attributes.style.nodeValue += 'cursor: pointer;';
+    //       }
+    //     } else {
+    //       chart.toElement.attributes.style.nodeValue =
+    //           chart.toElement.attributes.style.nodeValue.replace('cursor: pointer;', 'cursor: default;');
+    //     }
+    //   }
+    // }
+  };
 
   constructor() {}
 
