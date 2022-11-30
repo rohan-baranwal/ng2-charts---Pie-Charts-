@@ -30,45 +30,54 @@ export class AppComponent {
       ],
     },
   ];
-  // public pieChartOptions: ChartOptions<'pie'> = {
-  public pieChartOptions: any = {
+  public pieChartOptions: ChartOptions<'pie'> = {
+    // public pieChartOptions: any = {
     responsive: true,
     maintainAspectRatio: true,
+    radius: '50%',
     plugins: {
       legend: {
         display: false,
       },
       tooltip: {
-        enabled: false
-      },datalabels: {
-        font: {
-          isDoughnut: false,
-          size: 24,
-        }
-      }
-    },
-    pieceLabel: { // !Remove
-      responsive: true,
-      maintainAspectRatio: true,
-      render: function (args: any) {
-        const value = args.value;
-        return value;
+        enabled: false,
       },
-      fontColor: 'rgb(255,255,255)',
-      fontStyle: 'bold',
-      fontFamily: 'Helvetica',
-      overlap: true
+      datalabels: {
+        font: {
+          // isDoughnut: false,
+          size: 24,
+        },
+      },
     },
+    // pieceLabel: { // !Remove
+    //   responsive: true,
+    //   maintainAspectRatio: true,
+    //   render: function (args: any) {
+    //     const value = args.value;
+    //     return value;
+    //   },
+    //   fontColor: 'rgb(255,255,255)',
+    //   fontStyle: 'bold',
+    //   fontFamily: 'Helvetica',
+    //   overlap: true
+    // },
   };
   public pieChartLabels = [
     ['Download', 'Sales'],
     ['In', 'Store', 'Sales'],
     'Mail Sales',
   ];
-  public pieChartDatasets: { data: number[]; backgroundColor: string[]; }[] = [
+  public pieChartDatasets: { data: number[]; backgroundColor: string[] }[] = [
     {
       data: [300, 500, 100],
-      backgroundColor: ['#ed7d31', '#4375a1', '#ffbf00', '#afafaf', '#70AD46', '#5B9CD6']
+      backgroundColor: [
+        '#ed7d31',
+        '#4375a1',
+        '#ffbf00',
+        '#afafaf',
+        '#70AD46',
+        '#5B9CD6',
+      ],
     },
   ];
   public pieChartLegend = true;
@@ -77,17 +86,18 @@ export class AppComponent {
     responsive: true,
     maintainAspectRatio: true,
     legend: {
-      display: false
+      display: false,
     },
     tooltips: {
-      enabled: false
+      enabled: false,
     },
     // set dataLabel if you want to show count of data as label inside chart, isDoughnut field is for Doughnut chart.
     dataLabel: {
       isDoughnut: false, // ! Remove
-      fontSize: '24'
+      fontSize: '24',
     },
-    pieceLabel: { // !Remove
+    pieceLabel: {
+      // !Remove
       responsive: true,
       maintainAspectRatio: true,
       render: function (args: any) {
@@ -97,7 +107,7 @@ export class AppComponent {
       fontColor: 'rgb(255,255,255)',
       fontStyle: 'bold',
       fontFamily: 'Helvetica',
-      overlap: true
+      overlap: true,
     },
     // onHover: function (chart, array) {
     //   if (chart.toElement && chart.toElement.attributes.style) {
