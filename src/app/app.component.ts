@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {
+  ActiveElement,
+  Chart,
   ChartEvent,
   ChartOptions,
   ChartType,
@@ -34,7 +36,8 @@ export class AppComponent {
     // public pieChartOptions: any = {
     responsive: true,
     maintainAspectRatio: true,
-    radius: '50%',
+    // radius: '50%',
+    aspectRatio: 2,
     plugins: {
       legend: {
         display: false,
@@ -43,9 +46,11 @@ export class AppComponent {
         enabled: false,
       },
       datalabels: {
+        color: 'white',
         font: {
           // isDoughnut: false,
-          size: 24,
+          // size: 16,
+          weight: 'bold',
         },
       },
     },
@@ -61,6 +66,40 @@ export class AppComponent {
     //   fontFamily: 'Helvetica',
     //   overlap: true
     // },
+    onHover: (
+      event: ChartEvent,
+      arrayElements: ActiveElement[],
+      chart: Chart<'pie'>
+    ) => {
+      if (
+        (event.native as any).toElement &&
+        (event.native as any).toElement.attributes.style
+      ) {
+        if (arrayElements[0]) {
+          (event.native as any).toElement.attributes.style.nodeValue = (
+            event.native as any
+          ).toElement.attributes.style.nodeValue.replace(
+            'cursor: default;',
+            'cursor: pointer;'
+          );
+          if (
+            (event.native as any).toElement.attributes.style.nodeValue.indexOf(
+              'cursor: pointer;'
+            ) === -1
+          ) {
+            (event.native as any).toElement.attributes.style.nodeValue +=
+              'cursor: pointer;';
+          }
+        } else {
+          (event.native as any).toElement.attributes.style.nodeValue = (
+            event.native as any
+          ).toElement.attributes.style.nodeValue.replace(
+            'cursor: pointer;',
+            'cursor: default;'
+          );
+        }
+      }
+    },
   };
   public pieChartLabels = [
     ['Download', 'Sales'],
@@ -144,6 +183,6 @@ export class AppComponent {
     event?: ChartEvent;
     active?: {}[];
   }): void {
-    console.log('hover', event, active);
+    // console.log('hover', event, active);
   }
 }
