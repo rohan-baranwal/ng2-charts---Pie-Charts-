@@ -20,6 +20,7 @@ export class AppComponent {
   // Pie
   public pieChartType: string = 'pie';
   public pieChartPlugins = [DataLabelsPlugin];
+  public pieChartPlugins2 = [DataLabelsPlugin];
   public pieChartColors: any[] = [
     {
       backgroundColor: [
@@ -48,8 +49,6 @@ export class AppComponent {
       datalabels: {
         color: 'white',
         font: {
-          // isDoughnut: false,
-          // size: 16,
           weight: 'bold',
         },
       },
@@ -108,7 +107,7 @@ export class AppComponent {
   ];
   public pieChartDatasets: { data: number[]; backgroundColor: string[] }[] = [
     {
-      data: [300, 500, 100],
+      data: [300, 500, 100, 0, 100],
       backgroundColor: [
         '#ed7d31',
         '#4375a1',
